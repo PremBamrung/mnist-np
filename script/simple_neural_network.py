@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import image
 from tqdm.notebook import  tqdm
 import joblib
-import cv2
 
 plt.rcParams['figure.figsize'] = [17, 10]
 
@@ -182,7 +182,7 @@ class NN():
         Predict the class and probability of an image X
         return : image,predicted_class,probability
         """
-        img = invert(cv2.imread(X, 0))
+        img = invert(image.imread(X))[:,:,0]
         plt.imshow(img, cmap="gray")
         img = img.reshape(28*28)
         return self.predict(img)

@@ -1,16 +1,16 @@
-import neural_network
+import simple_neural_network as snn
 import numpy as np 
 
 
 def run():
     print(f'{"":-<20} Loading data {"":-<20}')
-    X_train = np.load("train-images.npy").reshape(-1,28*28)
-    Y_train = np.load("train-labels.npy")
-    X_test = np.load("t10k-images.npy").reshape(-1,28*28)
-    Y_test = np.load("t10k-labels.npy")
+    X_train = np.load("../data/number/numpy/train-images.npy").reshape(-1,28*28)
+    Y_train = np.load("../data/number/numpy/train-labels.npy")
+    X_test = np.load("../data/number/numpy/t10k-images.npy").reshape(-1,28*28)
+    Y_test = np.load("../data/number/numpy/t10k-labels.npy")
     print(f'{"":-<20} Data loaded {"":-<20}')
 
-    model=neural_network.NN(X_train,X_test,Y_train,Y_test,neurons=512,epochs=5,learning_rate=1e-3,dropout=0.2)
+    model=snn.NN(X_train,X_test,Y_train,Y_test,neurons=512,epochs=5,learning_rate=1e-3)
 
     # print(f'{"":-<20} Training model {"":-<20}')
     
